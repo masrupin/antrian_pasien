@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistem Antrian Pasien </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+$(document).ready(function() {
+    function updateStatus() {
+        $.getJSON("{{ url_for('update_status') }}", function(data) {
+            if (data.success) {
+                location.reload();
+            }
+        });
+    }
+
+    // Set interval for status update
+    var interval = 30000; // 30 seconds
+    var countdownElement = $('#countdown');
+
+    function startCountdown() {
+        var countdown = interval / 1000; // Countdown in seconds
+        countdownElement.text(countdown);
+
+        var countdownInterval = setInterval(function() {
+            countdown--;
+            countdownElement.text(countdown);
+
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                updateStatus(); // Panggil updateStatus() ketika countdown habis
+                startCountdown(); // Mulai countdown baru
+            }
+        }, 1000);
+    }
+
+    // Initial start
+    startCountdown();
+});
+
+
+
+        function deleteCustomer(customerId) {
+            if (confirm("Are you sure you want to delete this customer?")) {
+                $.ajax({
+                    url: '/delete_customer/' + customerId,
+                    type: 'DELETE',
+                    success: function(result) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+    </script>
+        <div style="position: absolute; right: 20px; top: 10px;">
+            <p>Refresh Status in <span id="countdown">30</span> seconds.</p>
+        </div>
+</head>
+<body>
+    <h1>Sistem Antrian Pasien RSI Al-Luqmaniyyah</h1>
+
+    <form action="{{ url_for('add_customer') }}" method="post">
+        <label for="name">Nama Pasien:</label>
+        <input type="text" id="name" name="name" pattern="[a-zA-Z0-9\s]+" title="Hanya huruf dan angka yang diperbolehkan" required>
+        <label for="arrival_time">Waktu Kedatangan:</label>
+        <input type="datetime-local" id="arrival_time" name="arrival_time" required>
+        <input type="submit" value="Tambahkan Pasien">
+    </form>
+    
+    
+    <form action="{{ url_for('clear_all') }}" method="post">
+        <input type="submit" value="Clear All">
+    </form>
+    
+
+    <h2>Daftar Pasien</h2>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Nama Pasien</th>
+            <th>Waktu Kedatangan</th>
+            <th>Aksi</th>
+        </tr>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.arrival_time }}</td>
+            <td><button onclick="deleteCustomer({{ customer.id }})">Hapus Pasien</button></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Status Antrian Pasien</h2>
+    <table>
+        <tr>
+            <th>Nomor Antrian</th>
+            <th>Nama Pasien</th>
+            <th>Status</th>
+        </tr>
+        {% for q in queue %}
+        <tr>
+            <td>{{ q.id }}</td>
+            <td>{{ q.customer_name }}</td>
+            <td>{{ q.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Data Keluar-Masuk Pasien</h2>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Nama Pasien</th>
+            <th>Waktu Mulai Periksa</th>
+            <th>Waktu Selesai Periksa</th>
+        </tr>
+        {% for service in services %}
+        <tr>
+            <td>{{ service.id }}</td>
+            <td>{{ service.customer_name }}</td>
+            <td>{{ service.service_start_time }}</td>
+            <td>{{ service.service_end_time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

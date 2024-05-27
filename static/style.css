@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: rgb(147, 168, 147);
+    color: rgb(8, 1, 1); /* Agar teks dapat terbaca dengan jelas */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;    
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+form {
+    margin-bottom: 20px;
+    background-color: rgb(147, 168, 147);
+
+}
+
+label {
+    margin-right: 10px;
+    background-color: rgb(147, 168, 147);
+}
+
+input[type="text"], input[type="datetime-local"], input[type="submit"] {
+    margin-right: 10px;
+    background-color: rgb(177, 181, 177);
+}
+
+button {
+    background-color: rgb(177, 181, 177);
+    color: black;
+}
