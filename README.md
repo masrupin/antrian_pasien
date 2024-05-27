@@ -59,5 +59,3 @@ queue_system/
 
 ```
 
-```
-
