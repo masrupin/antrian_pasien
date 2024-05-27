@@ -16,7 +16,7 @@ Pastikan Anda sudah menginstall Python, MySQL, dan pip:
 Jalankan perintah berikut untuk menginstal dependensi yang diperlukan:
 pip install Flask mysql-connector-python
 
-
+```
 ## Mengatur Database
 
 1. Buka MySQL Command Line atau gunakan MySQL Workbench.
