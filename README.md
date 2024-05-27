@@ -51,10 +51,12 @@ pip install Flask mysql-connector-python
 
 ```plaintext
 queue_system/
-├── app.py          # Main application file
-├── init_db.py      # Database initialization script
-├── requirements.txt# Project dependencies
-└── README.md       # Documentation
+├── app.py
+├── templates/
+│   └── index.html
+└── static/
+    └── style.css
+
 ```
 
 ```
