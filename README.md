@@ -59,6 +59,6 @@ queue_system/
 
 ```
 
-Penulis
+# Penulis
 Proyek ini dikembangkan oleh MUHAMMAD ROFI'FACHRUDDIN (21106050052) dan ALFIYAN AGUS RIYANTO (21106050035).
 
