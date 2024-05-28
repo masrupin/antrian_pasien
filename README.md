@@ -1,4 +1,4 @@
-```markdown
+
 # Sistem Antrian Pasien
 
 Proyek ini adalah aplikasi web sederhana untuk mengelola antrian pasien menggunakan Python, Flask, dan MySQL.
@@ -10,7 +10,7 @@ Pastikan Anda sudah menginstall Python, MySQL, dan pip:
 1. **Python**: Unduh dan instal Python dari [situs resmi Python](https://www.python.org/downloads/).
 2. **MySQL**: Unduh dan instal MySQL dari [situs resmi MySQL](https://dev.mysql.com/downloads/installer/).
 3. **pip**: Pip biasanya sudah terinstal bersama Python. Anda bisa mengeceknya dengan perintah `pip --version` di terminal atau command prompt.
-```
+
 ## Instalasi Dependensi
 
 Jalankan perintah berikut untuk menginstal dependensi yang diperlukan:
