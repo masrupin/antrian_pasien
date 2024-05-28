@@ -1,4 +1,4 @@
-
+![alt text](https://github.com/masrupin/antrian_pasien/blob/main/Screenshot%202024-05-28%20184018.png?raw=true)
 # Sistem Antrian Pasien
 
 Proyek ini adalah aplikasi web sederhana untuk mengelola antrian pasien menggunakan Python, Flask, dan MySQL.
