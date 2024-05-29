@@ -59,6 +59,9 @@ queue_system/
 
 ```
 
+### Live Website
+Website dapat dilihat secara realtime pada link https://pasien.alluqmaniyyah.my.id/
+
 # Penulis
 Proyek ini dikembangkan oleh MUHAMMAD ROFI'FACHRUDDIN (21106050052) dan ALFIYAN AGUS RIYANTO (21106050035).
 
